@@ -1,13 +1,8 @@
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 
-namespace Shop2
+namespace AutenticacaoNET6
 {
     public class Startup
     {
@@ -54,7 +49,7 @@ namespace Shop2
 
             app.UseRouting();
 
-            app.UseCors(x => x
+            app.UseCors(a => a
                 .AllowAnyOrigin()
                 .AllowAnyMethod()
                 .AllowAnyHeader());

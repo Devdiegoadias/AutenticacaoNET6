@@ -1,12 +1,8 @@
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Shop2.Models;
-using System;
+using AutenticacaoNET6.Models;
 using Microsoft.AspNetCore.Authorization;
-using System.Linq;
-using Shop2.Services;
-using Shop2.Repositories;
+using AutenticacaoNET6.Services;
+using AutenticacaoNET6.Repositories;
 
 namespace Shop.Controllers
 {
@@ -16,9 +12,9 @@ namespace Shop.Controllers
         [HttpPost]
         [Route("login")]
         [AllowAnonymous]
-        public async Task<ActionResult<dynamic>> Authenticate([FromBody]User model)
+        public async Task<ActionResult<dynamic>> Authenticate([FromBody]Usuario model)
         {
-            var user = UserRepository.Get(model.Username, model.Password);
+            var user = UsuarioRepository.Get(model.Nome, model.Password);
 
             if (user == null)
                 return NotFound(new { message = "Usuário ou senha inválidos" });
